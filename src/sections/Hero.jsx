@@ -132,7 +132,7 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-xl p-1 glow-border">
                 <img
-                  src="public/assets/profile-photo.png"
+                  src="public/projects/profile-photo.png"
                   alt="Swarup"
                   className="w-full aspect-[4/5] object-cover rounded-lg"
                   
