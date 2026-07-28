@@ -66,7 +66,7 @@ export const Hero = () => {
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col justify-center my-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-6 items-center">
           
-          {/* Left Column - Text Content */}
+          {/* Left Column */}
           <div className="space-y-2.5">
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full glass text-[11px] text-primary">
@@ -75,7 +75,6 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Headline */}
             <div className="space-y-1">
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight animate-fade-in animation-delay-100">
                 Architecting <span className="text-primary glow-text">backend</span>
@@ -87,21 +86,24 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-xs md:text-xs lg:text-sm text-muted-foreground max-w-md animate-fade-in animation-delay-200 leading-relaxed">
-                Hi, I'm Swarup — a Computer Science Engineer and backend engineer. I design and build scalable backend architectures, high-performance APIs, microservices, and full-stack web applications across multiple tech stacks.
+                Hi, I'm Swarup — a Computer Science Engineer and full-stack web developer. I design and build scalable backend architectures, high-performance APIs, microservices, and modern web applications across multiple tech stacks.
               </p>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-2.5 animate-fade-in animation-delay-300 pt-1">
+            {/* Equal sized CTAs */}
+            <div className="flex flex-wrap items-center gap-2.5 animate-fade-in animation-delay-300 pt-1">
               <a href="#contact">
-                <Button size="sm" className="h-9 text-xs px-4">
-                  Contact Me <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                <Button size="sm" className="h-8 text-xs px-3.5">
+                  Contact Me <ArrowRight className="w-3.5 h-3.5 ml-1 inline" />
                 </Button>
               </a>
-              <AnimatedBorderButton className="h-9 text-xs px-4">
-                <Download className="w-3.5 h-3.5 mr-1" />
-                Download CV
-              </AnimatedBorderButton>
+              
+              <a href="/cv.pdf" download className="inline-block">
+                <AnimatedBorderButton className="h-8 text-xs px-3.5 py-0 flex items-center justify-center">
+                  <Download className="w-3.5 h-3.5 mr-1" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
 
             {/* Social Links */}
@@ -139,7 +141,6 @@ export const Hero = () => {
                   className="w-full aspect-[4/5] object-cover rounded-lg"
                 />
 
-                {/* Floating Badge (Bottom-Right) */}
                 <div className="absolute bottom-2 right-2 glass rounded-md px-2 py-1 animate-float z-10">
                   <div className="flex items-center gap-1.5">
                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
@@ -149,9 +150,8 @@ export const Hero = () => {
                   </div>
                 </div>
 
-                {/* Stats Badge (Top-Left) */}
                 <div className="absolute top-2 left-2 glass rounded-md px-2 py-1 animate-float animation-delay-500 z-10">
-                  <div className="text-xs font-bold text-primary">Backend</div>
+                  <div className="text-xs font-bold text-primary">Full-Stack</div>
                   <div className="text-[9px] text-muted-foreground">
                     Architect
                   </div>
