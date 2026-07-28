@@ -4,14 +4,12 @@ const highlights = [
   {
     icon: Code2,
     title: "Clean Code",
-    description:
-      "Writing maintainable, scalable code that stands the test of time.",
+    description: "Writing maintainable, scalable code that stands the test of time.",
   },
   {
     icon: Rocket,
     title: "Performance",
-    description:
-      "Optimizing for speed and delivering lightning-fast user experiences.",
+    description: "Optimizing for speed and delivering lightning-fast user experiences.",
   },
   {
     icon: Users,
@@ -21,8 +19,7 @@ const highlights = [
   {
     icon: Lightbulb,
     title: "Innovation",
-    description:
-      "Staying ahead with the latest technologies and best practices.",
+    description: "Staying ahead with the latest technologies and best practices.",
   },
 ];
 
@@ -31,7 +28,7 @@ export const About = () => {
     <section id="about" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column */}
+          
           <div className="space-y-8">
             <div className="animate-fade-in">
               <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
@@ -49,22 +46,21 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a passionate full-stack web developer currently completing my Computer 
+                Science Engineering degree. What started as a curiosity about how data flows 
+                across the web has evolved into a deep focus on crafting high-performance full-stack 
+                applications.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                I bridge the gap between front and back ends by design. On the frontend, I create sleek, 
+                responsive user interfaces using modern frameworks, while on the backend, I architect 
+                scalable microservices, high-performance REST APIs, and efficient database layers to power 
+                seamless systems.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                When I'm not coding, you'll find me sharpening my problem-solving skills with data structures 
+                and algorithms, analyzing deep chess lines, or experimenting with automation scripts and 
+                new developer workflows.
               </p>
             </div>
 
@@ -77,7 +73,6 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Right Column - Hilights */}
           <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((item, idx) => (
               <div
@@ -95,6 +90,7 @@ export const About = () => {
               </div>
             ))}
           </div>
+          
         </div>
       </div>
     </section>

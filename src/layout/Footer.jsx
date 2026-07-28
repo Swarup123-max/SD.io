@@ -1,9 +1,9 @@
 import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Github, href: "https://github.com/your-username", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/your-profile", label: "LinkedIn" },
+  { icon: Twitter, href: "https://twitter.com/your-handle", label: "Twitter" },
 ];
 
 const footerLinks = [
@@ -17,20 +17,23 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border">
+    <footer className="py-12 border-t border-border bg-background">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo & Copyright */}
+          
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
-              PM<span className="text-primary">.</span>
+            <a href="#" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
+              SD<span className="text-primary">.</span>
             </a>
-            <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Pedro Machado. All rights reserved.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-center md:justify-start gap-1 sm:gap-2 mt-2 text-sm text-muted-foreground">
+              <span>© {currentYear} Swarup Das. All rights reserved.</span>
+              <span className="hidden sm:inline text-muted-foreground/40">•</span>
+              <span className="flex items-center justify-center gap-1">
+                Built with <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500 animate-pulse" />
+              </span>
+            </div>
           </div>
 
-          {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
               <a
@@ -43,19 +46,21 @@ export const Footer = () => {
             ))}
           </nav>
 
-          {/* Social Links */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
-                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
               >
                 <social.icon className="w-5 h-5" />
               </a>
             ))}
           </div>
+
         </div>
       </div>
     </footer>

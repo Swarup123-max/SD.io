@@ -14,20 +14,20 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "pedro@example.com",
-    href: "mailto:pedro@example.com",
+    value: "swarup.das@example.com",
+    href: "mailto:swarup.das@example.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 98765 43210",
+    href: "tel:+919876543210",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
-    href: "#",
+    value: "Bhubaneswar, Odisha, India",
+    href: "https://maps.google.com",
   },
 ];
 
@@ -39,7 +39,7 @@ export const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
+    type: null,
     message: "",
   });
 
@@ -76,48 +76,51 @@ export const Contact = () => {
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {
-      console.error("EmailJS error:", error);
+      console.error("EmailJS error:", err);
       setSubmitStatus({
         type: "error",
         message:
-          error.text || "Failed to send message. Please try again later.",
+          err?.text || "Failed to send message. Please try again later.",
       });
     } finally {
       setIsLoading(false);
     }
   };
+
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section id="contact" className="py-12 lg:py-16 relative overflow-hidden flex items-center min-h-[calc(100vh-80px)]">
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
+      <div className="container mx-auto px-6 relative z-10 my-auto">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-secondary-foreground text-xs font-medium tracking-wider uppercase animate-fade-in">
             Get In Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 animate-fade-in animation-delay-100 text-secondary-foreground">
             Let's build{" "}
             <span className="font-serif italic font-normal text-white">
               something great.
             </span>
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have a project in mind? I'd love to hear about it. Send me a message
-            and let's discuss how we can work together.
+          <p className="text-sm text-muted-foreground animate-fade-in animation-delay-200">
+            Have a project in mind, a full-stack opportunity, or just want to connect?
+            Send me a message and let's discuss how we can work together.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+        {/* max-w-4xl scales down the box widths; items-start prevents bottom stretching */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto items-start">
+          
+          {/* Form Box */}
+          <div className="glass p-6 rounded-2xl border border-primary/30 animate-fade-in animation-delay-300">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-xs font-medium mb-1.5"
                 >
                   Name
                 </label>
@@ -130,52 +133,53 @@ export const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 text-sm bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  type="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-xs font-medium mb-1.5"
                 >
                   Email
                 </label>
                 <input
+                  id="email"
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  className="w-full px-4 py-2.5 text-sm bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-xs font-medium mb-1.5"
                 >
                   Message
                 </label>
                 <textarea
-                  rows={5}
+                  id="message"
+                  rows={4}
                   required
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
                   placeholder="Your message..."
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+                  className="w-full px-4 py-2.5 text-sm bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
                 />
               </div>
 
               <Button
-                className="w-full"
+                className="w-full h-11 text-sm"
                 type="submit"
-                size="lg"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -183,71 +187,70 @@ export const Contact = () => {
                 ) : (
                   <>
                     Send Message
-                    <Send className="w-5 h-5" />
+                    <Send className="w-4 h-4 ml-1.5 inline" />
                   </>
                 )}
               </Button>
 
               {submitStatus.type && (
                 <div
-                  className={`flex items-center gap-3
-                     p-4 rounded-xl ${
-                       submitStatus.type === "success"
-                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                         : "bg-red-500/10 border border-red-500/20 text-red-400"
-                     }`}
+                  className={`flex items-center gap-3 p-3 rounded-xl ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                  }`}
                 >
                   {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 flex-shrink-0" />
                   ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   )}
-                  <p className="text-sm">{submitStatus.message}</p>
+                  <p className="text-xs">{submitStatus.message}</p>
                 </div>
               )}
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-6 animate-fade-in animation-delay-400">
-            <div className="glass rounded-3xl p-8">
-              <h3 className="text-xl font-semibold mb-6">
+          {/* Info & Availability Box Stack */}
+          <div className="space-y-4 animate-fade-in animation-delay-400">
+            <div className="glass rounded-2xl p-6">
+              <h3 className="text-lg font-semibold mb-4">
                 Contact Information
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {contactInfo.map((item, i) => (
                   <a
                     key={i}
                     href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-surface transition-colors group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <item.icon className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                      <item.icon className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-xs text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium">{item.value}</div>
+                      <div className="font-medium text-sm">{item.value}</div>
                     </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Availability Card */}
-            <div className="glass rounded-3xl p-8 border border-primary/30">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-medium">Currently Available</span>
+            <div className="glass rounded-2xl p-6 border border-primary/30">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                <span className="font-medium text-sm">Open to Opportunities</span>
               </div>
-              <p className="text-muted-foreground text-sm">
-                I'm currently open to new opportunities and exciting projects.
-                Whether you need a full-time engineer or a freelance consultant,
-                let's talk!
+              <p className="text-muted-foreground text-xs leading-relaxed">
+                I'm actively seeking full-stack software engineering roles, web development opportunities, and collaborative tech projects. Feel free to reach out!
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -2,11 +2,12 @@ import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
 import { Projects } from "@/sections/Projects";
-import { Experience } from "@/sections/Experience";
+// import { Experience } from "@/sections/Experience";
 import { Testimonials } from "@/sections/Testimonials";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "./layout/Footer";
 import ParticlesBackground from "@/components/ParticlesBackground"
+import Roboimage from "@/components/Roboimage.jsx";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
-        
+        {/* <Roboimage/> */}
         <Testimonials />
         <Contact />
       </main>

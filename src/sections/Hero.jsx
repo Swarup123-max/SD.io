@@ -66,7 +66,7 @@ export const Hero = () => {
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col justify-center my-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-6 items-center">
           
-          {/* Left Column - Compact Text Content */}
+          {/* Left Column - Text Content */}
           <div className="space-y-2.5">
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full glass text-[11px] text-primary">
@@ -75,7 +75,7 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Scaled-down Headline */}
+            {/* Headline */}
             <div className="space-y-1">
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight animate-fade-in animation-delay-100">
                 Architecting <span className="text-primary glow-text">backend</span>
@@ -93,9 +93,11 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-2.5 animate-fade-in animation-delay-300 pt-1">
-              <Button size="sm" className="h-9 text-xs px-4">
-                Contact Me <ArrowRight className="w-3.5 h-3.5 ml-1" />
-              </Button>
+              <a href="#contact">
+                <Button size="sm" className="h-9 text-xs px-4">
+                  Contact Me <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                </Button>
+              </a>
               <AnimatedBorderButton className="h-9 text-xs px-4">
                 <Download className="w-3.5 h-3.5 mr-1" />
                 Download CV
@@ -121,7 +123,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Compact Profile Card */}
+          {/* Right Column - Profile Card */}
           <div className="relative animate-fade-in animation-delay-300">
             <div className="relative max-w-[180px] sm:max-w-[210px] lg:max-w-[240px] mx-auto">
               <div
@@ -132,10 +134,9 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-xl p-1 glow-border">
                 <img
-                  src="public/projects/profile-photo.png"
+                  src="/projects/profile-photo.png"
                   alt="Swarup"
                   className="w-full aspect-[4/5] object-cover rounded-lg"
-                  
                 />
 
                 {/* Floating Badge (Bottom-Right) */}
@@ -160,7 +161,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Marquee - Now clearly visible above the fold */}
+        {/* Marquee */}
         <div className="mt-4 animate-fade-in animation-delay-600">
           <p className="text-[9px] uppercase tracking-wider text-muted-foreground/80 mb-1 text-center">
             Technologies & Tools
