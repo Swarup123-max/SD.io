@@ -23,7 +23,7 @@ export const Footer = () => {
           
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
-              SD<span className="text-primary">.</span>
+              <span className="text-primary">SD.</span>
             </a>
             <div className="flex flex-col sm:flex-row sm:items-center justify-center md:justify-start gap-1 sm:gap-2 mt-2 text-sm text-muted-foreground">
               <span>© {currentYear} Swarup Das. All rights reserved.</span>
