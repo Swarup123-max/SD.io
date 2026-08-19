@@ -1,5 +1,4 @@
 import { Button } from "@/components/Button";
-import Roboimage from "@/components/Roboimage.jsx";
 import {
   ArrowRight,
   ChevronDown,
@@ -16,12 +15,8 @@ const skills = [
   "Node.js",
   "Express",
   "Python",
-  "Go",
   "REST APIs",
-  "GraphQL",
-  "PostgreSQL",
   "MongoDB",
-  "Redis",
   "SQL",
   "Microservices",
   "Docker",
@@ -90,15 +85,15 @@ export const Hero = () => {
               </p>
             </div>
 
-            {/* Equal sized CTAs */}
+            {/* CTAs */}
             <div className="flex flex-wrap items-center gap-2.5 animate-fade-in animation-delay-300 pt-1">
               <a href="#contact">
                 <Button size="sm" className="h-8 text-xs px-3.5">
                   Contact Me <ArrowRight className="w-3.5 h-3.5 ml-1 inline" />
                 </Button>
               </a>
-              
-              <a href="/cv.pdf" download className="inline-block">
+              {/* cv will be here */}
+              <a href="public/cv-swarup.pdf" download className="inline-block">
                 <AnimatedBorderButton className="h-8 text-xs px-3.5 py-0 flex items-center justify-center">
                   <Download className="w-3.5 h-3.5 mr-1" />
                   Download CV
@@ -177,7 +172,7 @@ export const Hero = () => {
             />
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-2.5 py-0.5">
+                <div key={`${skill}-${idx}`} className="flex-shrink-0 px-2.5 py-0.5">
                   <span className="text-xs font-medium text-muted-foreground/60 hover:text-primary transition-colors">
                     {skill}
                   </span>
